@@ -2124,7 +2124,7 @@ mod tests {
         assert_eq!(
             list_redrivable_deliveries(&pool, 34, 0, 86_400, 86_400)
                 .await
-                .unwrap()
+                .expect("list_redrivable_deliveries should succeed after cap elapsed")
                 .len(),
             1,
             "attempt 33 must become eligible immediately after the cap"
