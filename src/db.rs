@@ -1844,7 +1844,7 @@ mod tests {
         );
 
         // A second sweep is a no-op — nothing is double-reported.
-        assert_eq!(expire_overdue(&pool).await.unwrap().len(), 0);
+        assert_eq!(expire_overdue(&pool).await.expect("expire_overdue should succeed on second sweep").len(), 0);
     }
 
     #[tokio::test]
