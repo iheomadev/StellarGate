@@ -2158,7 +2158,7 @@ mod tests {
         )
         .fetch_one(&pool)
         .await
-        .unwrap();
+        .expect("idx_webhook_deliveries_redrive index should be present in sqlite_master");
 
         assert_eq!(table, "webhook_deliveries");
     }
